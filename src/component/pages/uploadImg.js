@@ -1,20 +1,32 @@
-import React, { useState } from "react";
- 
+import React from "react";
+import { Button, Form, Col, Input, Row,  } from "reactstrap";
+import { useGallary } from "../../Context/StoreGallary";
+
 function UploadImg() {
-    const [file, setFile] = useState();
-    function handleChange(e) {
-        console.log(e.target.files);
-        setFile(URL.createObjectURL(e.target.files[0]));
-    }
- 
-    return (
-        <div className="UploadImg">
-            <h2>Add Image:</h2>
-            <input type="file" onChange={handleChange} />
-            <img src={file}  alt="pic"/>
-        </div>
- 
-    );
+  const { addImg, handleChange} = useGallary();
+
+  return (
+    <div className="d-flex flex-wrap align-item-center justify-content-center mt-5" >
+      <Form>
+        <Row className="row-cols-lg-auto g-3 align-items-center">
+          <Col>
+            <Input
+              id="exampleFile"
+              name="file"
+              type="file"
+              required
+              onChange={handleChange}
+            />
+          </Col>
+          <Col>
+            <Button color="success" onClick={addImg}>
+              + ADD
+            </Button>
+          </Col>
+        </Row>
+      </Form>
+    </div>
+  );
 }
- 
+
 export default UploadImg;

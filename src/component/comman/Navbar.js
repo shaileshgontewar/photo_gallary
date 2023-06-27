@@ -5,10 +5,11 @@ import {
   NavItem,
   NavbarToggler,
   Collapse,
-  NavLink,
+ 
   Nav,
   NavbarBrand,
 } from "reactstrap";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -17,8 +18,7 @@ function NavBar() {
     <div
       style={{
         display: "block",
-        // width: 550,
-        padding: 30,
+        
       }}
     >
       <Navbar color="light" light expand="md">
@@ -31,16 +31,16 @@ function NavBar() {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/">Home</NavLink>
+              <NavLink to="/" className='my_nav'>Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="image">Photo</NavLink>
+              <NavLink to="image" className='my_nav'>Photo</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/video">Video</NavLink>
+              <NavLink to="/video" className='my_nav'>Video</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/audio">Audio</NavLink>
+              <NavLink to="/audio" className='my_nav'>Audio</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
